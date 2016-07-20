@@ -1,0 +1,30 @@
+<aws:UrlInfoResponse xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/">
+    <aws:Response xmlns:aws="http://awis.amazonaws.com/doc/2005-07-11">
+        <aws:OperationRequest>
+            <aws:RequestId>e2d14b63-7ec3-31ba-9b53-6e9c432effa2</aws:RequestId>
+        </aws:OperationRequest>
+        <aws:UrlInfoResult>
+            <aws:Alexa>
+                <aws:ContentData>
+                    <aws:DataUrl type="canonical">corrieredellosport.it/</aws:DataUrl>
+                    <aws:Language>
+                        <aws:Locale>it-IT</aws:Locale>
+                        <aws:Encoding>windows-1252</aws:Encoding>
+                    </aws:Language>
+                </aws:ContentData>
+                <aws:Related>
+                    <aws:DataUrl type="canonical">corrieredellosport.it/</aws:DataUrl>
+                    <aws:Categories>
+                        <aws:CategoryData>
+                            <aws:Title>Sport/Notizie e Media</aws:Title>
+                            <aws:AbsolutePath>Top/World/Italiano/Sport/Notizie_e_Media</aws:AbsolutePath>
+                        </aws:CategoryData>
+                    </aws:Categories>
+                </aws:Related>
+            </aws:Alexa>
+        </aws:UrlInfoResult>
+        <aws:ResponseStatus xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/">
+            <aws:StatusCode>Success</aws:StatusCode>
+        </aws:ResponseStatus>
+    </aws:Response>
+</aws:UrlInfoResponse>

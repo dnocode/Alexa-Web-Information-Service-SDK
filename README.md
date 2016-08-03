@@ -1,5 +1,5 @@
-## Synopsis
-Alexa Web Information Service SDK
+## Alexa Web Information Service SDK
+
 
 Simple java sdk for AWIS 
 

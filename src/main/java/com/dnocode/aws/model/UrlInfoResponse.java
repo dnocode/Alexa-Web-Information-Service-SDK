@@ -33,6 +33,10 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "UrlInfoResponse",namespace = "http://alexa.amazonaws.com/doc/2005-10-05/")
 public class UrlInfoResponse extends AlexaResponse {
 
+    public ResponseUrlInfoType getResponse() {
+        return response;
+    }
+
     @XmlElement(name = "Response", required = true)
     protected ResponseUrlInfoType response;
 

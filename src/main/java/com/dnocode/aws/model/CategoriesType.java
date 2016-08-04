@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.List;
 
 
 /**
@@ -40,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
 public class CategoriesType {
 
     @XmlElement(name = "CategoryData", required = true)
-    protected CategoryDataType categoryData;
+    protected List<CategoryDataType> categoryData;
 
     /**
      * Gets the value of the categoryData property.
@@ -50,7 +51,7 @@ public class CategoriesType {
      *     {@link CategoryDataType }
      *     
      */
-    public CategoryDataType getCategoryData() {
+    public List<CategoryDataType> getCategoryData() {
         return categoryData;
     }
 
@@ -62,7 +63,7 @@ public class CategoriesType {
      *     {@link CategoryDataType }
      *     
      */
-    public void setCategoryData(CategoryDataType value) {
+    public void setCategoryData(List<CategoryDataType> value) {
         this.categoryData = value;
     }
 

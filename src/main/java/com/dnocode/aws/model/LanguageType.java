@@ -35,12 +35,15 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LanguageType", propOrder = {
-    "locale"
+    "locale","encoding"
 })
 public class LanguageType {
 
     @XmlElement(name = "Locale", required = true)
     protected String locale;
+
+    @XmlElement(name = "Encoding", required = true)
+    protected String encoding;
 
     /**
      * Gets the value of the locale property.
@@ -65,5 +68,12 @@ public class LanguageType {
     public void setLocale(String value) {
         this.locale = value;
     }
+
+
+    public String getEncoding() {
+        return encoding;
+    }
+
+    public void  setEncording(String encoding){ this.encoding=encoding;}
 
 }

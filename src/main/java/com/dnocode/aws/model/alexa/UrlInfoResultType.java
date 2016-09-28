@@ -6,12 +6,12 @@
 //
 
 
-package com.dnocode.aws.model;
+package com.dnocode.aws.model.alexa;
 
-import com.dnocode.aws.model.AlexaResponse;
-import com.dnocode.aws.model.alexa.ResponseUrlInfoType;
-
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -33,20 +33,37 @@ import javax.xml.bind.annotation.*;
  * 
  * 
  */
-@XmlRootElement(name = "UrlInfoResponse",namespace = "http://alexa.amazonaws.com/doc/2005-10-05/")
-public class UrlInfoResponse extends AlexaResponse {
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "UrlInfoResultType", propOrder = {
+    "alexa"
+})
+public class UrlInfoResultType {
 
-    public ResponseUrlInfoType getResponse() {
-        return response;
+    @XmlElement(name = "Alexa", required = true)
+    protected AlexaType alexa;
+
+    /**
+     * Gets the value of the alexa property.
+     *
+     * @return
+     *     possible object is
+     *     {@link AlexaType }
+     *
+     */
+    public AlexaType getAlexa() {
+        return alexa;
     }
 
-    public void setResponse(ResponseUrlInfoType response) {
-         this.response=response;
+    /**
+     * Sets the value of the alexa property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link AlexaType }
+     *
+     */
+    public void setAlexa(AlexaType value) {
+        this.alexa = value;
     }
-
-    @XmlElement(name = "Response", required = true)
-    protected ResponseUrlInfoType response;
-
-
 
 }

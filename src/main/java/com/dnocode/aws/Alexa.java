@@ -1,23 +1,21 @@
 package com.dnocode.aws;
 
 import com.dnocode.aws.fn.ErrorResponseFN;
-import com.dnocode.aws.fn.HttpErrorCheck;
-import com.dnocode.aws.fn.UnmarshalFN;
+import com.dnocode.aws.fn.UnmarshalSaxFN;
+import com.dnocode.aws.handler.GenericSaxAlexaHandler;
 import com.dnocode.aws.model.Actions;
 import com.dnocode.aws.model.AlexaResponse;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
 import org.apache.http.impl.nio.client.HttpAsyncClients;
-import org.apache.http.nio.client.methods.HttpAsyncMethods;
+import org.xml.sax.helpers.DefaultHandler;
 import rx.Observable;
-import rx.Subscriber;
-import rx.apache.http.ObservableHttp;
-import rx.exceptions.Exceptions;
 import sun.misc.BASE64Encoder;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.ValidationException;
-import java.io.IOException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
@@ -27,7 +25,6 @@ import java.net.URLEncoder;
 import java.security.SignatureException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Created by dino on 18/07/16.
@@ -182,6 +179,8 @@ public class Alexa {
 
         private final String finalUrl;
 
+
+
         private AlexaRequest(String finalUrl ){
         this.finalUrl=finalUrl;
         }
@@ -194,20 +193,15 @@ public class Alexa {
                     URL url = new URL(finalUrl);
                     URLConnection conn = url.openConnection();
                     InputStream in = conn.getInputStream();
-                    StringBuffer sb = new StringBuffer();
-                    int c;
-                    int lastChar = 0;
-                    while ((c = in.read()) != -1) {
-                        if (c == '<' && (lastChar == '>'))
-                            sb.append('\n');
-                        sb.append((char) c);
-                        lastChar = c;
-                    }
-                    in.close();
-                  subscriber.onNext(Optional.of(sb.toString()).map(new UnmarshalFN<E>()).get());
+
+                    Optional<GenericSaxAlexaHandler<E>> saxhandler = new UnmarshalSaxFN().apply(in, clazz);
+
+                     subscriber.onNext(saxhandler.isPresent()?saxhandler.get().toAlexaResponse():null);
+
                 } catch ( Exception e ) {
                     subscriber.onNext(new ErrorResponseFN<E>().apply(e,clazz));
                 }
+
                 subscriber.onCompleted();
             });
 

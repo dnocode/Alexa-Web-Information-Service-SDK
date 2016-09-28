@@ -2,7 +2,7 @@ package com.dnocode.aws.fn;
 
 import com.dnocode.aws.model.Actions;
 import com.dnocode.aws.model.AlexaResponse;
-import com.dnocode.aws.model.ErrorResponse;
+import com.dnocode.aws.model.alexa.ErrorResponse;
 import rx.exceptions.Exceptions;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -16,8 +16,11 @@ public class UnmarshalFN<T extends AlexaResponse>
         implements Function<String, T> {
     @Override
     public T apply(String s) {
+
         String responseSuffix="Response";
+
         Class targetClazz = null;
+
        for(int i=0; i< Actions.values().length;i++){
           if(s.contains( Actions.values()[i]+responseSuffix)){
               try {

@@ -10,6 +10,7 @@ public class AlexaResponse implements IAlexaResponse {
     public boolean isOk(){ return errorMessage==null;}
 
     public void setErrorMessage(String errorMessage){this.errorMessage=errorMessage;}
+
     public String getErrorMessage(){return this.errorMessage;}
 
 

@@ -1,23 +1,26 @@
 <aws:UrlInfoResponse xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/">
     <aws:Response xmlns:aws="http://awis.amazonaws.com/doc/2005-07-11">
         <aws:OperationRequest>
-            <aws:RequestId>e2d14b63-7ec3-31ba-9b53-6e9c432effa2</aws:RequestId>
+            <aws:RequestId>e517c6f7-1164-24ae-c409-4fdd68c24438</aws:RequestId>
         </aws:OperationRequest>
         <aws:UrlInfoResult>
             <aws:Alexa>
                 <aws:ContentData>
-                    <aws:DataUrl type="canonical">corrieredellosport.it/</aws:DataUrl>
+                    <aws:DataUrl type="canonical">sch.gr/</aws:DataUrl>
+                    <aws:AdultContent>no</aws:AdultContent>
                     <aws:Language>
-                        <aws:Locale>it-IT</aws:Locale>
-                        <aws:Encoding>windows-1252</aws:Encoding>
+                        <aws:Locale>el-GR</aws:Locale>
+                        <aws:Encoding>iso-8859-7</aws:Encoding>
                     </aws:Language>
                 </aws:ContentData>
                 <aws:Related>
-                    <aws:DataUrl type="canonical">corrieredellosport.it/</aws:DataUrl>
+                    <aws:DataUrl type="canonical">sch.gr/</aws:DataUrl>
                     <aws:Categories>
                         <aws:CategoryData>
-                            <aws:Title>Sport/Notizie e Media</aws:Title>
-                            <aws:AbsolutePath>Top/World/Italiano/Sport/Notizie_e_Media</aws:AbsolutePath>
+                            <aws:Title>Εκπαίδευση/Διαδικτυακές Πύλες</aws:Title>
+                            <aws:AbsolutePath>
+                                Top/World/Greek/Κατά_Περιοχή/Ευρώπη/Ελλάδα/Εκπαίδευση/Διαδικτυακές_Πύλες
+                            </aws:AbsolutePath>
                         </aws:CategoryData>
                     </aws:Categories>
                 </aws:Related>
